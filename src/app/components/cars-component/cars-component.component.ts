@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { CarServiceService  } from '../../services/car-service.service';
+
 
 @Component({
-  selector: 'app-cars-component',
-  templateUrl: './cars-component.component.html',
-  styleUrls: ['./cars-component.component.css']
+ selector: 'app-cars',
+ templateUrl: './cars.component.html',
+ styleUrls: ['./cars.component.css']
 })
-export class CarsComponentComponent implements OnInit {
+export class CarsComponent implements OnInit {
 
-  constructor() { }
+ cars = [];
 
-  ngOnInit() {
-  }
+ constructor(private _carsService: CarServiceService ) {
+   this.cars = this._carsService.getCars();
+ }
+
+ ngOnInit() {
+ }
 
 }
